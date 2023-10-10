@@ -14,4 +14,9 @@ wget https://get.symfony.com/cli/installer -O - | bash
 - Vérifiez le bon fonctionnement de l'exécutable: symfony self:version  
 - Contrôlez la compatibilité du système: symfony check:requirements  --verbose
 
+## scripts
+
+- composer start : lance le serveur web de test
+- composer test:cs : lance la commande de vérification du code par PHP CS Fixer
+- composer fix:cs : lance la commande de correction du code par PHP CS Fixer
 
