@@ -1,3 +1,4 @@
-<head><title> Hello {{ name }}!</title></head>
-<h1>{{ name }}</h1>
-<body><p>Hello {{name}}</p></body>
+{% extends '/base.html.twig' %}
+
+{% block title %}Hello {{ name }}{% endblock %}
+{% block body %}<h1>{{ name }}</h1><p>Hello {{name}}</p>{% endblock %}
