@@ -91,7 +91,7 @@
         ],
         "test": [
             "@test:cs"
-        ],
+        ]
     },
     "conflict": {
         "symfony/symfony": "*"
