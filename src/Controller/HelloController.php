@@ -20,4 +20,9 @@ class HelloController extends AbstractController
     {
         return $this->render('hello/world.html.twig', ['name' => $name]);
     }
+    #[Route('/hello/{name}/{times}')]
+    public function manyTimes(string $name, string $times): Response
+    {
+        return $this->render('hello/world.html.twig', ['name' => $name, 'times'=>$times]);
+    }
 }
