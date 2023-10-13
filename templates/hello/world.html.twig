@@ -1,4 +1,10 @@
 {% extends '/base.html.twig' %}
 
 {% block title %}Hello {{ name }}{% endblock %}
-{% block body %}<h1>{{ name }}</h1><p>Hello {{name}}</p>{% endblock %}
+{% block body %}
+    <h1>{{ name }}</h1>
+    <p>Hello {{name}}</p>
+    {% for i in 0..10 %}
+        <p style="color:{{ cycle(['blue', 'red'], i) }}"> Hello {{ name|capitalize }} {{ i|format_number({integer_digit: 2}) }}</p>
+    {% endfor %}
+{% endblock %}
