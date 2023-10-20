@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contact {{ times }}!{% endblock %}
+{% block body %}
+    <h1>Hello Contact {{ name }}!</h1>
+    <p>Hello {{name}}</p>
+    {% for i in 1..times %}
+        <p style="color:{{ cycle(['blue', 'red'], i) }}"> Hello {{ name|capitalize }}! {{ i }}</p>
+    {% endfor %}
+{% endblock %}
