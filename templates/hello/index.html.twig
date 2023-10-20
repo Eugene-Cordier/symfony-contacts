@@ -3,7 +3,7 @@
 {% block title %}Hello HelloController!{% endblock %}
 {% block body %}
 <ul>
-    <li><a href="{{ path('app_hello_times',{name: "Joe", times: 5}) }}">Joe, 5</a></li>
-    <li><a href="{{ path('app_hello_times',{name: "Bob", times: 8}) }}">Bob, 8</a></li>
+    <li><a href="{{ path('app_hello_manytimes',{name: "Joe", times: 5}) }}">Joe, 5</a></li>
+    <li><a href="{{ path('app_hello_manytimes',{name: "Bob", times: 8}) }}">Bob, 8</a></li>
 </ul>
 {% endblock %}

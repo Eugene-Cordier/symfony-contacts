@@ -1,10 +1,10 @@
 {% extends '/base.html.twig' %}
 
-{% block title %}Hello many times!{{ times }}{% endblock %}
+{% block title %}Hello many times {{ times }}!{% endblock %}
 {% block body %}
-    <h1>{{ name }}</h1>
+    <h1>Hello many times {{ name }}!</h1>
     <p>Hello {{name}}</p>
     {% for i in 1..times %}
-        <p style="color:{{ cycle(['blue', 'red'], i) }}"> Hello {{ name|capitalize }} {{ i }}</p>
+        <p style="color:{{ cycle(['blue', 'red'], i) }}"> Hello {{ name|capitalize }}! {{ i }}</p>
     {% endfor %}
 {% endblock %}
