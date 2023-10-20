@@ -17,6 +17,7 @@ wget https://get.symfony.com/cli/installer -O - | bash
 ## scripts
 
 - composer start : lance le serveur web de test
-- composer test:cs : lance la commande de vérification du code par PHP CS Fixer
+- composer tests:cs : lance la commande de vérification du code par PHP CS Fixer
 - composer fix:cs : lance la commande de correction du code par PHP CS Fixer
-
+- composer test:codecption : clean le output dossier et le code généré
+- composer test : lance test:codecption et fix:cs

@@ -90,8 +90,15 @@
         "fix:cs" : [
             "php-cs-fixer fix"
         ],
-        "test": [
+        "tests": [
             "@test:cs"
+        ],
+        "test:codeception" : [
+            "codecept clean"
+        ],
+        "test" : [
+            "@fix:cs",
+            "@test:codeception"
         ]
     },
     "conflict": {
