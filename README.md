@@ -21,3 +21,6 @@ wget https://get.symfony.com/cli/installer -O - | bash
 - composer fix:cs : lance la commande de correction du code par PHP CS Fixer
 - composer test:codecption : clean le output dossier et le code généré
 - composer test : lance test:codecption et fix:cs
+
+## autre 
+- config DataBase .env.local : DATABASE_URL="mysql://${DB_USER}:${DB_PASS}@${DB_SERVER}/${DB_DBNAME}?serverVersion=${DB_VERSION}"
