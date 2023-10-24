@@ -24,3 +24,4 @@ wget https://get.symfony.com/cli/installer -O - | bash
 
 ## autre 
 - config DataBase .env.local : DATABASE_URL="mysql://${DB_USER}:${DB_PASS}@${DB_SERVER}/${DB_DBNAME}?serverVersion=${DB_VERSION}"
+- lancer les tests: php vendor/bin/codecept run
