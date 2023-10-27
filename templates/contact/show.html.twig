@@ -1,17 +1,17 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{ firstName }}  {{ lastName }} {% endblock %}
+{% block title %}{{ contact.firstName }}  {{ contact.lastName }} {% endblock %}
 
 {% block body %}
-    <h1>{{ firstName }} {{ lastName }}</h1>
+    <h1>{{ contact.firstName }} {{ contact.lastName }}</h1>
     <p>informations:</p>
     <dl>
         <dt>firstName</dt>
-        <dd>{{  firstName }}</dd>
+        <dd>{{  contact.firstName }}</dd>
         <dt>lastName</dt>
-        <dd>{{ lastName }}</dd>
+        <dd>{{ contact.lastName }}</dd>
         <dt>email</dt>
-        <dd>{{ email }}</dd>
+        <dd>{{ contact.email }}</dd>
     </dl>
 {% endblock %}
 

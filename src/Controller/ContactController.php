@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Contact;
 use App\Repository\ContactRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -18,18 +19,9 @@ class ContactController extends AbstractController
         ]);
     }
 
-    #[Route('/contact/{contactId}', name: 'app_contact/show', requirements: ['contactId' => '\d+'])]
-    public function show(ContactRepository $contactRepository, int $contactId): Response
+    #[Route('/contact/{id}', name: 'app_contact/show', requirements: ['contactId' => '\d+'])]
+    public function show(contact $contact): Response
     {
-        $contact = $contactRepository->find($contactId);
-        if ($contact) {
-            $firstName = $contact->getFirstname();
-            $lastName = $contact->getLastname();
-            $email = $contact->getEmail();
-
-            return $this->render('contact/show.html.twig', ['contact' => $contact, 'email' => $email, 'firstName' => $firstName, 'lastName' => $lastName]);
-        } else {
-            throw $this->createNotFoundException("le contact n'existe pas");
-        }
+        return $this->render('contact/show.html.twig', ['contact' => $contact]);
     }
 }
