@@ -15,6 +15,5 @@ class IndexCest
         $I->seeNumberOfElements('li', 195);
         $I->click('Richard Jacquot');
         $I->seeCurrentTemplateIs('contact/show.html.twig');
-
     }
 }
