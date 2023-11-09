@@ -34,9 +34,12 @@ final class ContactFactory extends ModelFactory
      *
      * @todo inject services if required
      */
+    public ?\Transliterator $transliterator;
+
     public function __construct()
     {
         parent::__construct();
+        $this->transliterator = transliterator_create('Any-Latin; Latin-ASCII');
     }
 
     /**
@@ -50,7 +53,7 @@ final class ContactFactory extends ModelFactory
             'firstname' => preg_replace('/[^a-z]/', '-', self::faker()->firstName($gender = null | 'male' | 'female')),
             'lastname' => preg_replace('/[^a-z]/', '-', self::faker()->lastName()),
             self::faker()->domainName(),
-            'email' => preg_replace('/[^a-z]/', '-', mb_strtolower(transliterator_transliterate(self::faker()->safeEmail(), 0, -1))),
+            'email' => preg_replace('/[^a-z]/', '-', mb_strtolower(transliterator_transliterate(transliterator_create('Any-Latin; Latin-ASCII'), self::faker()->safeEmail(), 0, -1))),
         ];
     }
 
@@ -67,5 +70,10 @@ final class ContactFactory extends ModelFactory
     protected static function getClass(): string
     {
         return Contact::class;
+    }
+
+    protected function normalizeName(string $string): string
+    {
+        return preg_replace('/[^a-z]/', '-', mb_strtolower(transliterator_transliterate(transliterator_create('Any-Latin; Latin-ASCII'), $string, 0, -1)));
     }
 }
