@@ -2,6 +2,8 @@
 
 namespace App\DataFixtures;
 
+use App\Entity\Contact;
+use App\Factory\ContactFactory;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 
@@ -9,9 +11,8 @@ class ContactFixtures extends Fixture
 {
     public function load(ObjectManager $manager): void
     {
-        // $product = new Product();
-        // $manager->persist($product);
-
-        $manager->flush();
+        ContactFactory::createMany(150);
     }
+
+
 }

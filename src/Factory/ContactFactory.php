@@ -55,6 +55,7 @@ final class ContactFactory extends ModelFactory
             self::faker()->domainName(),
             'email' => preg_replace('/[^a-z]/', '-', mb_strtolower(transliterator_transliterate(transliterator_create('Any-Latin; Latin-ASCII'), self::faker()->safeEmail(), 0, -1))),
         ];
+
     }
 
     /**
@@ -74,6 +75,7 @@ final class ContactFactory extends ModelFactory
 
     protected function normalizeName(string $string): string
     {
-        return preg_replace('/[^a-z]/', '-', mb_strtolower(transliterator_transliterate(transliterator_create('Any-Latin; Latin-ASCII'), $string, 0, -1)));
+        return preg_replace('/[^a-z]/', '-', mb_strtolower(transliterator_transliterate($this->transliterator, $string, 0, -1)));
     }
+
 }
