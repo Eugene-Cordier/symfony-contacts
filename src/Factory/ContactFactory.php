@@ -49,13 +49,15 @@ final class ContactFactory extends ModelFactory
      */
     protected function getDefaults(): array
     {
-        return [
-            'firstname' => preg_replace('/[^a-z]/', '-', self::faker()->firstName($gender = null | 'male' | 'female')),
-            'lastname' => preg_replace('/[^a-z]/', '-', self::faker()->lastName()),
-            self::faker()->domainName(),
-            'email' => preg_replace('/[^a-z]/', '-', mb_strtolower(transliterator_transliterate(transliterator_create('Any-Latin; Latin-ASCII'), self::faker()->safeEmail(), 0, -1))),
-        ];
+        $firstname = $this->normalizeName(self::faker()->firstName());
+        $lastname = $this->normalizeName(self::faker()->lastName());
+        $email = $firstname.$lastname.'@'.self::faker()->domainName();
 
+        return [
+            'firstname' => $firstname,
+            'lastname' => $lastname,
+            'email' => $email,
+        ];
     }
 
     /**
@@ -77,5 +79,4 @@ final class ContactFactory extends ModelFactory
     {
         return preg_replace('/[^a-z]/', '-', mb_strtolower(transliterator_transliterate($this->transliterator, $string, 0, -1)));
     }
-
 }
