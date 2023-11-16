@@ -12,4 +12,3 @@ extensions:
         - Codeception\Extension\RunFailed
 params:
     - .env
-    - .env.test.local
