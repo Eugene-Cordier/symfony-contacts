@@ -1,11 +1,9 @@
 {% extends 'base.html.twig' %}
-<html lang="fr">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport">
-        {% block title %}{{ contact.firstName }}  {{ contact.lastName }} {% endblock %}
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
-    <head/>
+
+{% block title %}
+    {{ contact.firstName }}  {{ contact.lastName }}
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+{% endblock %}
 
     {% block body %}
         {% block javascripts %}
@@ -22,6 +20,5 @@
             <dd>{{ contact.email }}</dd>
         </dl>
     {% endblock %}
-<html/>
 
 

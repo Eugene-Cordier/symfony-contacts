@@ -1,11 +1,10 @@
 {% extends '/base.html.twig' %}
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport">
-        {% block title %}Hello {{ name }}{% endblock %}
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
-    </head>
+
+        {% block title %}
+            Hello {{ name }}
+            <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+        {% endblock %}
+
     {% block body %}
         {% block javascripts %}
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
@@ -16,4 +15,4 @@
             <p style="color:{{ cycle(['blue', 'red'], i) }}"> Hello {{ name|capitalize }} {{ i|format_number({integer_digit: 2}) }}</p>
         {% endfor %}
     {% endblock %}
-</html>
+
