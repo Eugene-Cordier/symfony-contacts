@@ -1,19 +1,27 @@
 {% extends 'base.html.twig' %}
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport">
+        {% block title %}{{ contact.firstName }}  {{ contact.lastName }} {% endblock %}
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <head/>
 
-{% block title %}{{ contact.firstName }}  {{ contact.lastName }} {% endblock %}
-
-{% block body %}
-    <h1>{{ contact.firstName }} {{ contact.lastName }}</h1>
-    <p>informations:</p>
-    <dl>
-        <dt>firstName</dt>
-        <dd>{{  contact.firstName }}</dd>
-        <dt>lastName</dt>
-        <dd>{{ contact.lastName }}</dd>
-        <dt>email</dt>
-        <dd>{{ contact.email }}</dd>
-    </dl>
-{% endblock %}
-
+    {% block body %}
+        {% block javascripts %}
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+        {% endblock %}
+        <h1>{{ contact.firstName }} {{ contact.lastName }}</h1>
+        <p>informations:</p>
+        <dl>
+            <dt>firstName</dt>
+            <dd>{{  contact.firstName }}</dd>
+            <dt>lastName</dt>
+            <dd>{{ contact.lastName }}</dd>
+            <dt>email</dt>
+            <dd>{{ contact.email }}</dd>
+        </dl>
+    {% endblock %}
+<html/>
 
 
