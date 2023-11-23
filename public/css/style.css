@@ -1,3 +1,4 @@
-body{
-    background-color: aquamarine;
+.lastname{
+    font-weight: bold;
+    font-variant-caps: all-small-caps;
 }
