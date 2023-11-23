@@ -22,7 +22,8 @@ wget https://get.symfony.com/cli/installer -O - | bash
 - composer test:codecption : clean le output dossier et le code généré, fait le script bd
 - composer test : lance test:codecption et fix:cs
 - composer bd : regénère une bd avec des données factices
-
+- composer bd-test : regénère une bd avec des données factices pour les tests
+- composer test-f : lance les tests fonctionnels
 ## autre 
 - config DataBase .env.local : DATABASE_URL="mysql://${DB_USER}:${DB_PASS}@${DB_SERVER}/${DB_DBNAME}?serverVersion=${DB_VERSION}"
 - lancer les tests: php vendor/bin/codecept run  

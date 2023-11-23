@@ -2,7 +2,6 @@
 
 namespace App\DataFixtures;
 
-use App\Entity\Contact;
 use App\Factory\ContactFactory;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
@@ -13,6 +12,4 @@ class ContactFixtures extends Fixture
     {
         ContactFactory::createMany(150);
     }
-
-
 }
