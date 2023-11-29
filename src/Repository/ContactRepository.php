@@ -49,18 +49,10 @@ class ContactRepository extends ServiceEntityRepository
      */
     public function search(string $text = ''): array
     {
-        $conn = $this->getEntityManager()->getConnection();
-        $qb = $this->createQueryBuilder('p');
-        if ('' != $text) {
-            $qb->select('*')
-                ->where('c.lastname == name || c.firstname == name')
-                ->setParameter('name', $text)
-                ->orderBy('c.firstname', 'c.lastname', 'ASC');
-        } else {
-            $qb->select('*')
-                ->from('Contact', 'c')
-                ->orderBy('c.firstname', 'c.lastname', 'ASC');
-        }
+        $qb = $this->createQueryBuilder('c');
+        $qb->where('c.lastname like :name OR c.firstname like :name')
+            ->setParameter('name', '%'.$text.'%')
+            ->orderBy('c.lastname,c.firstname', 'ASC');
         $query = $qb->getQuery();
 
         return $query->execute();
