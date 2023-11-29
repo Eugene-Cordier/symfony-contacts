@@ -1,18 +1,15 @@
 {% extends '/base.html.twig' %}
 
         {% block title %}
-            Hello many times {{ times }}!
-            <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+            <title>
+                Hello many times {{ times }}!
+            </title>
         {% endblock %}
 
     {% block body %}
-    {% block javascripts %}
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
-    {% endblock %}
         <h1>Hello many times {{ name }}!</h1>
         <p>Hello {{name}}</p>
         {% for i in 1..times %}
             <p style="color:{{ cycle(['blue', 'red'], i) }}"> Hello {{ name|capitalize }}! {{ i }}</p>
         {% endfor %}
     {% endblock %}
-<
