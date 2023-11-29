@@ -44,4 +44,25 @@ class ContactRepository extends ServiceEntityRepository
     //            ->getOneOrNullResult()
     //        ;
     //    }
+    /** public function search(string $text=""): array.
+     * @return contact[]
+     */
+    public function search(string $text = ''): array
+    {
+        $conn = $this->getEntityManager()->getConnection();
+        $qb = $this->createQueryBuilder('p');
+        if ('' != $text) {
+            $qb->select('*')
+                ->where('c.lastname == name || c.firstname == name')
+                ->setParameter('name', $text)
+                ->orderBy('c.firstname', 'c.lastname', 'ASC');
+        } else {
+            $qb->select('*')
+                ->from('Contact', 'c')
+                ->orderBy('c.firstname', 'c.lastname', 'ASC');
+        }
+        $query = $qb->getQuery();
+
+        return $query->execute();
+    }
 }
