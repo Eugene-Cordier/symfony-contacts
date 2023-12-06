@@ -52,11 +52,13 @@ final class ContactFactory extends ModelFactory
         $firstname = $this->normalizeName(self::faker()->firstName());
         $lastname = $this->normalizeName(self::faker()->lastName());
         $email = $firstname.$lastname.'@'.self::faker()->domainName();
+        $phone = self::faker()->phoneNumber();
 
         return [
             'firstname' => $firstname,
             'lastname' => $lastname,
             'email' => $email,
+            'phone' => $phone,
         ];
     }
 
