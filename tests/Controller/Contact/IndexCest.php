@@ -24,7 +24,7 @@ class IndexCest
         ContactFactory::createOne(['firstName' => 'Joe', 'lastName' => 'Adam']);
         ContactFactory::createOne(['firstName' => 'Adam', 'lastName' => 'Aaaaaaaaaaaaaaa']);
         $I->fillField("//input[@type='search']","Adam");
-        $I->click("submit");
+        $I->click("Rechercher");
         $I->see('Joe');
         $I->see('Aaaaaaaaaaaaaaa');
     }
