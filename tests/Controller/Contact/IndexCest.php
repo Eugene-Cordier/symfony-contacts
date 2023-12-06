@@ -3,6 +3,7 @@
 namespace App\Tests\Controller\Contact;
 
 use App\Factory\ContactFactory;
+use App\Repository\ContactRepository;
 use App\Tests\Support\ControllerTester;
 
 class IndexCest
