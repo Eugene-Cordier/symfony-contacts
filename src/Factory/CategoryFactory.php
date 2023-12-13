@@ -47,21 +47,10 @@ final class CategoryFactory extends ModelFactory
      */
     protected function getDefaults(): array
     {
-        //if ($file_content = file_get_contents('Category.json', '/src/DataFixtures/data', null, 0)) {
-            //$file_content_decode = json_decode($file_content, false);
-            //var_dump($file_content_decode);
-
-            //return [
-               // 'name' => mb_convert_case(self::faker()->text(30), MB_CASE_TITLE),
-              //  $file_content_decode,
-          //  ];
-        //} else {
-          //  throw new FileException("impossible d'avoir les données de category.json");
-        //}
         return [
-            'name' => mb_convert_case(self::faker()->text(30), MB_CASE_TITLE),
-            'category'=>,
+            'name' => mb_convert_case(self::faker()->word(30), MB_CASE_TITLE),
         ];
+
     }
 
     /**

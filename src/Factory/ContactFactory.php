@@ -55,13 +55,12 @@ final class ContactFactory extends ModelFactory
         $phone = self::faker()->phoneNumber();
 
 
-
         return [
             'firstname' => $firstname,
             'lastname' => $lastname,
             'email' => $email,
             'phone' => $phone,
-            'category' => CategoryFactory::createOne(),
+            'category' => CategoryFactory::new(),
         ];
     }
 
