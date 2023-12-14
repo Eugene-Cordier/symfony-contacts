@@ -51,8 +51,7 @@ class ContactRepository extends ServiceEntityRepository
     public function search(string $text = ''): array
     {
         $qb = $this->createQueryBuilder('c');
-        $qb->leftJoin('co.Contact','co')
-            ->where('c.lastname like :name OR c.firstname like :name')
+        $qb->where('c.lastname like :name OR c.firstname like :name')
             ->setParameter('name', '%'.$text.'%')
             ->orderBy('c.lastname', 'ASC')
             ->addOrderBy('c.firstname', 'ASC');
