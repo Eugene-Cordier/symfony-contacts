@@ -2,6 +2,7 @@
 
 namespace App\Repository;
 
+use App\Entity\Category;
 use App\Entity\Contact;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
@@ -50,7 +51,8 @@ class ContactRepository extends ServiceEntityRepository
     public function search(string $text = ''): array
     {
         $qb = $this->createQueryBuilder('c');
-        $qb->where('c.lastname like :name OR c.firstname like :name')
+        $qb->leftJoin('co.Contact','co')
+            ->where('c.lastname like :name OR c.firstname like :name')
             ->setParameter('name', '%'.$text.'%')
             ->orderBy('c.lastname', 'ASC')
             ->addOrderBy('c.firstname', 'ASC');
