@@ -17,4 +17,11 @@ class ContactFixtures extends Fixture
             ];
         });
     }
+
+    public function getDependencies()
+    {
+        return [
+            CategoryFixtures::class,
+        ];
+    }
 }
