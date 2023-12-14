@@ -13,6 +13,5 @@ class CategoryFixtures extends Fixture
         $file_content = file_get_contents(__DIR__.'/data/Category.json');
         $data = json_decode($file_content, true);
         CategoryFactory::createSequence($data);
-        CategoryFactory::createOne();
     }
 }
