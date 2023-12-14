@@ -5,7 +5,8 @@
 {% block body %}
     <ul>
         {% for category in categories %}
-            <li>{{ category.name }}</li>
+            <li>{{ category.category.name }}{{ category.count }}<span class="badge bg-secondary">New</span></li>
+
         {% endfor %}
      </ul>
 

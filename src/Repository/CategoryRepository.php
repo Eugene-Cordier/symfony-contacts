@@ -20,10 +20,16 @@ class CategoryRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Category::class);
     }
-    public function search(string $text = ''): array
+
+    public function search(): array
     {
         $qb = $this->createQueryBuilder('c');
-        $qb->orderBy('c.name', 'ASC');
+        $qb
+            ->select('c as category')
+            ->leftJoin('c.contacts', 'co')
+            ->addSelect('COUNT(co) as count')
+            ->groupBy('c')
+            ->orderBy('c.name', 'ASC');
         $query = $qb->getQuery();
 
         return $query->execute();
