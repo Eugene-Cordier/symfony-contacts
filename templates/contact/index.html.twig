@@ -5,6 +5,6 @@
             Liste des contacts
         {% endblock %}
     {% block body %}
-        {{ include('contact/_contacts.twig') }}
+        {{ include('contact/_contacts.twig',with_context = true) }}
     {% endblock %}
 
