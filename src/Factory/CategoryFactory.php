@@ -4,7 +4,6 @@ namespace App\Factory;
 
 use App\Entity\Category;
 use App\Repository\CategoryRepository;
-use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Zenstruck\Foundry\ModelFactory;
 use Zenstruck\Foundry\Proxy;
 use Zenstruck\Foundry\RepositoryProxy;
@@ -50,7 +49,6 @@ final class CategoryFactory extends ModelFactory
         return [
             'name' => mb_convert_case(self::faker()->word(30), MB_CASE_TITLE),
         ];
-
     }
 
     /**

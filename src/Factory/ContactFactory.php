@@ -54,7 +54,6 @@ final class ContactFactory extends ModelFactory
         $email = $firstname.$lastname.'@'.self::faker()->domainName();
         $phone = self::faker()->phoneNumber();
 
-
         return [
             'firstname' => $firstname,
             'lastname' => $lastname,

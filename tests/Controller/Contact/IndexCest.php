@@ -23,8 +23,8 @@ class IndexCest
         ContactFactory::createMany(2);
         ContactFactory::createOne(['firstName' => 'Joe', 'lastName' => 'Adam']);
         ContactFactory::createOne(['firstName' => 'Adam', 'lastName' => 'Aaaaaaaaaaaaaaa']);
-        $I->fillField("//input[@type='search']","Adam");
-        $I->click("Rechercher");
+        $I->fillField("//input[@type='search']", 'Adam');
+        $I->click('Rechercher');
         $I->see('Joe');
         $I->see('Aaaaaaaaaaaaaaa');
     }

@@ -11,7 +11,7 @@ class ContactFixtures extends Fixture
 {
     public function load(ObjectManager $manager): void
     {
-        ContactFactory::createMany(150, function() {
+        ContactFactory::createMany(150, function () {
             return [
                 'category' => CategoryFactory::faker()->boolean(90) ? CategoryFactory::random() : null,
             ];
