@@ -16,8 +16,8 @@ class CategoryController extends AbstractController
     {
 
         //$categories = $categoryRepository->findBy([], ['name' => 'ASC']);
-        $search = $request->query->get('search', '');
-        $categories = $categoryRepository->search($search);
+        $search = $request->query->get('findAllAlphabeticallyWithContactCount', '');
+        $categories = $categoryRepository->findAllAlphabeticallyWithContactCount($search);
         dump($categories);
         return $this->render('category/index.html.twig', [
             'categories' => $categories,
