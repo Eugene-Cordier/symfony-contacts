@@ -6,12 +6,11 @@
                 <a href="{{ path('app_contact/show',{id: contact.id}) }}">
                     <span><span class="lastname">{{ contact.lastName }}</span>, <span class="firstname">{{ contact.firstname }}</span></span>
                 </a>
-                {% if (contact.category is not null) %}
+                {% if (show_category??true and contact.category is not null) %}
                 <a href="{{ path('app_category_show',{'id' : contact.category.id}) }}">
                    <span class="badge bg-secondary">{{ contact.category.name }}</span>
                 </a>
                 {% endif %}
-
             </li>
         {% endfor %}
     </ul>
