@@ -29,4 +29,24 @@ class ContactController extends AbstractController
     {
         return $this->render('contact/show.html.twig', ['contact' => $contact]);
     }
+    #[Route('/contact/{id}/update', name: 'app_contact_update', requirements: ['id' => '\d+'])]
+    public function update(Contact $contact, Request $request): Response
+    {
+        return $this->render('contact/update.html.twig', ['contact' => $contact,
+        ]);
+    }
+    #[Route('/contact/create/', name: 'app_contact_create')]
+    public function create(ContactRepository $contactRepository, Request $request): Response
+    {
+
+
+        return $this->render('contact/create.html.twig',
+        );
+    }
+    #[Route('/contact/{id}/delete', name: 'app_contact_delete', requirements: ['id' => '\d+'])]
+    public function delete( Request $request, Contact $contact): Response
+    {
+        return $this->render('contact/delete.html.twig', ['contact' => $contact,
+        ]);
+    }
 }
