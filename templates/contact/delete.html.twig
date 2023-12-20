@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Suppression de {{ contact.lastName }}, {{ contact.firstName }}
+{% endblock %}
+
+    {% block body %}
+        <h1>Suppression de {{ contact.lastName }}, {{ contact.firstName }}</h1>
+        <p>informations:</p>
+        <dl>
+            <dt>firstName</dt>
+            <dd>{{  contact.firstName }}</dd>
+            <dt>lastName</dt>
+            <dd>{{ contact.lastName }}</dd>
+            <dt>email</dt>
+            <dd>{{ contact.email }}</dd>
+            <dt>Category</dt>
+            <dd>{{ contact.category.name ?? 'aucune catégorie' }}</dd>
+        </dl>
+    {% endblock %}
+
+
