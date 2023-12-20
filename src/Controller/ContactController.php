@@ -22,7 +22,7 @@ class ContactController extends AbstractController
         ]);
     }
 
-    #[Route('/contact/{id}', name: 'app_contact/show', requirements: ['contactId' => '\d+'])]
+    #[Route('/contact/{id}', name: 'app_contact/show', requirements: ['id' => '\d+'])]
     public function show(
         #[MapEntity(expr: 'repository.findWithCategory(id)')]
         Contact $contact): Response
