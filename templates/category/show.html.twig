@@ -6,5 +6,5 @@
     <ul>
         <li>{{ category.name }}</li>
     </ul>
-    {{ include('contact/_contacts.twig', {contacts: category.contacts, show_category:false}) }}
+    {{ include('contact/_contacts.twig', {contacts: category.contacts}) }}
 {% endblock %}
