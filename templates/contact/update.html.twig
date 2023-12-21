@@ -6,7 +6,14 @@
 
     {% block body %}
         <h1>Édition de {{ contact.lastName }}, {{ contact.firstName }}</h1>
-        {{ form(form) }}
+        {{ form_start(form) }}
+        {{ form_row(form.firstname) }}
+        {{ form_row(form.lastname) }}
+        {{ form_row(form.email) }}
+        {{ form_row(form.phone) }}
+        {{ form_row(form.category) }}
+        <button class="" type="submit">Modifier</button>
+        {{ form_end(form) }}
     {% endblock %}
 
 
