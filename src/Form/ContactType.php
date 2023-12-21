@@ -17,11 +17,12 @@ class ContactType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('firstname', TextType::class)
-            ->add('lastname', TextType::class)
-            ->add('email', TextType::class)
-            ->add('phone', TelType::class)
+            ->add('firstname', TextType::class, ['empty_data' => 'John'])
+            ->add('lastname', TextType::class, ['empty_data' => 'Doe'])
+            ->add('email', TextType::class, ['empty_data' => 'JohnDoe@gmail.com'])
+            ->add('phone', TelType::class, ['empty_data' => '0123456789'])
             ->add('category', EntityType::class, [
+                'required' => false,
                     'class' => Category::class,
                     'choice_label' => 'name',
                     'query_builder' => function (EntityRepository $entityRepository) {
