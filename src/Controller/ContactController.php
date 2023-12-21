@@ -45,6 +45,8 @@ class ContactController extends AbstractController
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->flush();
+
+            return $this->redirectToRoute('app_contact/show', ['id' => $contact->getId()]);
         }
 
         return $this->render('contact/update.html.twig', [
