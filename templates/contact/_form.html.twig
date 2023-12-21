@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Création d'un nouveau contact
+{% endblock %}
+
+    {% block body %}
+        {{ form_start(form) }}
+        {{ form_row(form.firstname,  {'label': 'firstname'}) }}
+        {{ form_row(form.lastname,  {'label': 'lastname'}) }}
+        {{ form_row(form.email, {'label': 'email'}) }}
+        {{ form_row(form.phone,  {'label': 'phone'}) }}
+        {{ form_row(form.category,  {'label': 'category', 'placeholder': 'aucune catégorie'}) }}
+        <button class="btn btn-secondary" type="submit"> {{ submit_label }} </button>
+        {{ form_end(form) }}
+    {% endblock %}
+
+
