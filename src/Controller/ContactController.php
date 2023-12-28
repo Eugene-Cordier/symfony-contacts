@@ -84,10 +84,14 @@ class ContactController extends AbstractController
         ->add('cancel', SubmitType::class, ['label' => 'annuler']);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager->remove($contact);
-            $entityManager->flush();
+            if ($form->get('delete')->isClicked()) {
+                $entityManager->remove($contact);
+                $entityManager->flush();
 
-            return $this->redirectToRoute('app_contact');
+                return $this->redirectToRoute('app_contact');
+            }
+            return $this->redirectToRoute('app_contact/show', ['id' => $contact->getId()]);
+
         }
 
         return $this->render('contact/delete.html.twig', [
