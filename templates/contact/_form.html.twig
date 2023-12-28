@@ -1,16 +1,14 @@
 
 
-    {% block body %}
-        {{ form_start(form) }}
-        {{ form_row(form.firstname,  {'label': 'firstname'}) }}
-        {{ form_row(form.lastname,  {'label': 'lastname'}) }}
-        {{ form_row(form.email, {'label': 'email'}) }}
-        {{ form_row(form.phone,  {'label': 'phone'}) }}
-        {{ form_row(form.category,  {'label': 'category', 'placeholder': 'aucune catégorie'}) }}
-        {{ form_end(form, {render_rest: false}) }}
-        {% if submit_label!= 'supprimer' %}
-            <button class="btn btn-primary" type="submit"> {{ submit_label }} </button>
-        {% endif %}
-    {% endblock %}
+{{ form_start(form) }}
+{{ form_row(form.firstname,  {'label': 'firstname'}) }}
+{{ form_row(form.lastname,  {'label': 'lastname'}) }}
+{{ form_row(form.email, {'label': 'email'}) }}
+{{ form_row(form.phone,  {'label': 'phone'}) }}
+{{ form_row(form.category,  {'label': 'category', 'placeholder': 'aucune catégorie'}) }}
+{% if submit_label!= 'supprimer' %}
+    <button class="btn btn-primary" type="submit"> {{ submit_label }} </button>
+{% endif %}
+{{ form_end(form) }}
 
 
