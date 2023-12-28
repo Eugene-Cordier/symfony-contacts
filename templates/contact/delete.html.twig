@@ -7,8 +7,8 @@
     {% block body %}
         <h1>Suppression de {{ contact.lastName }}, {{ contact.firstName }}</h1>
         <p>informations:</p>
-        {{ include('contact/_form.html.twig',{'submit_label': 'supprimer', 'form': form}, with_context = false) }}
         <div class="d-flex">
+        {{ include('contact/_form.html.twig',{'submit_label': 'supprimer', 'form': form}, with_context = false) }}
             {{ form_start(form) }}
             {{ form_row(form.delete,  {'label': 'supprimer'}) }}
             {{ form_row(form.cancel,  {'label': 'annuler'}) }}
