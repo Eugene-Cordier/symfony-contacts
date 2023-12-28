@@ -13,7 +13,7 @@
         {{ form_row(form.category,  {'label': 'category', 'placeholder': 'aucune catégorie'}) }}
         {{ form_end(form, {render_rest: false}) }}
         {% if submit_label!= 'supprimer' %}
-            <button class="btn btn-secondary" type="submit"> {{ submit_label }} </button>
+            <button class="btn btn-primary" type="submit"> {{ submit_label }} </button>
         {% endif %}
     {% endblock %}
 
