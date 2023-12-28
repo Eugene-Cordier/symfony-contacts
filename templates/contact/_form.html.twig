@@ -11,8 +11,10 @@
         {{ form_row(form.email, {'label': 'email'}) }}
         {{ form_row(form.phone,  {'label': 'phone'}) }}
         {{ form_row(form.category,  {'label': 'category', 'placeholder': 'aucune catégorie'}) }}
-        <button class="btn btn-secondary" type="submit"> {{ submit_label }} </button>
         {{ form_end(form, {render_rest: false}) }}
+        {% if submit_label!= 'supprimer' %}
+            <button class="btn btn-secondary" type="submit"> {{ submit_label }} </button>
+        {% endif %}
     {% endblock %}
 
 
