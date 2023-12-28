@@ -30,9 +30,7 @@ class ContactType extends AbstractType
                         return $entityRepository->createQueryBuilder('c')
                             ->orderBy('c.name', 'ASC');
                     },
-            ])
-            ->add('delete', SubmitType::class, ['label' => 'supprimer'])
-            ->add('cancel', SubmitType::class, ['label' => 'annuler']);
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void
