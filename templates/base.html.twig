@@ -33,7 +33,7 @@
                     <li class="nav-item-category"><a href="{{ path('app_contact_create') }}" class="nav-link">Ajouter un contact</a></li>
                 </ul>
                 {% if is_granted('IS_AUTHENTICATED_FULLY', object = null, field = null) %}
-                    <a href="{{ path('app_logout') }}"><button class="btn btn-outline-success" type="submit">Se déconncter</button></a>
+                    <a href="{{ path('app_logout') }}"><button class="btn btn-outline-success" type="submit">{{ app.user.firstname }}</button></a>
                     {% else %}
                        <a href="{{ path('app_logout') }}"><button class="btn btn-outline-success" type="submit">connectez-vous</button></a>
                 {% endif %}
