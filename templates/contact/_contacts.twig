@@ -3,12 +3,14 @@
     <ul>
         {% for contact in contacts %}
             <li>
+                {% if is_granted('ROLE_ADMIN', object = null, field = null) %}
                 <a href="{{ path('app_contact_update',{id: contact.id}) }}">
                     <div class="text-warning"><span class="material-symbols-outlined">edit</span></div>
                 </a>
                 <a href="{{ path('app_contact_delete',{id: contact.id}) }}">
                     <div class="text-danger"><span class="material-symbols-outlined">delete</span></div>
                 </a>
+                {% endif %}
                 <a href="{{ path('app_contact/show',{id: contact.id}) }}">
                     <span>
                         <span class="lastname">{{ contact.lastName }}</span>, <span class="firstname">{{ contact.firstname }}</span>
