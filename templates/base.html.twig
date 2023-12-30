@@ -35,7 +35,7 @@
                 {% if is_granted('IS_AUTHENTICATED_FULLY', object = null, field = null) %}
                     <a href="{{ path('app_logout') }}"><button class="btn btn-outline-success" type="submit">{{ app.user.firstname }}</button></a>
                     {% else %}
-                       <a href="{{ path('app_logout') }}"><button class="btn btn-outline-success" type="submit">connectez-vous</button></a>
+                       <a href="{{ path('app_login') }}"><button class="btn btn-outline-success" type="submit">connectez-vous</button></a>
                 {% endif %}
                 <form class="d-flex" role="search" method="get" action="{{ path('app_contact') }}">
                     <input class="form-control me-2" type="search" placeholder="Recherche" aria-label="Search" name="search">
