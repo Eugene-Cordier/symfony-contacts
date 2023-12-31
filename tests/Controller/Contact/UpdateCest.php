@@ -5,6 +5,7 @@ namespace App\Tests\Controller\Contact;
 use App\Factory\ContactFactory;
 use App\Factory\UserFactory;
 use App\Tests\Support\ControllerTester;
+use Codeception\Util\HttpCode;
 
 class UpdateCest
 {
@@ -38,5 +39,18 @@ class UpdateCest
         $I->amLoggedInAs($userObj);
         $I->amOnPage('/contact/'.$contact->getId().'/update');
         $I->seeResponseCodeIsSuccessful();
+    }
+
+    public function accessIsRestrictedToAdminUsers(ControllerTester $I)
+    {
+        $contact = ContactFactory::createOne([
+            'firstname' => 'Homer',
+            'lastname' => 'Simpson',
+        ]);
+        $user = UserFactory::createOne(['roles' => ['ROLE_USER']]);
+        $userObj = $user->object();
+        $I->amLoggedInAs($userObj);
+        $I->amOnPage('/contact/'.$contact->getId().'/update');
+        $I->SeeResponseCodeIs(HttpCode::FORBIDDEN);
     }
 }
