@@ -10,10 +10,7 @@
 
         {{ include('contact/_form.html.twig',{'submit_label': 'supprimer', 'form': form}, with_context = false) }}
 
-            {{ form_start(form,{'attr':{'class':"d-flex"}}) }}
-            {{ form_row(form.delete,  {'label': 'supprimer'}) }}
-            {{ form_row(form.cancel,  {'label': 'annuler'}) }}
-            {{ form_end(form) }}
+
     {% endblock %}
 
 
