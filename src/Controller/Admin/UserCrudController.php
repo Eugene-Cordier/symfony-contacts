@@ -40,7 +40,13 @@ class UserCrudController extends AbstractCrudController
         $this->setUserPassword($Password, $entityInstance, $entityManager);
     }
 
-
+    public function persistEntity(EntityManagerInterface $entityManager, $entityInstance): void
+    {
+        parent::persistEntity($entityManager, $entityInstance);
+        $request = $this->getContext()->getRequest();
+        $Password = $request->get('User')['password'];
+        $this->setUserPassword($Password, $entityInstance, $entityManager);
+    }
 
     public function configureFields(string $pageName): iterable
     {
