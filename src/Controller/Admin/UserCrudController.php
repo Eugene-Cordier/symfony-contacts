@@ -26,6 +26,12 @@ class UserCrudController extends AbstractCrudController
         $this->UserPasswordHasherInterface = $UserPasswordHasherInterface;
     }
 
+    public function configureAssets(Assets $assets): Assets
+    {
+        return parent::configureAssets($assets)
+            ->addHtmlContentToHead('<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />');
+    }
+
 
 
     public function configureFields(string $pageName): iterable
