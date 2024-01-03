@@ -32,6 +32,14 @@ class UserCrudController extends AbstractCrudController
             ->addHtmlContentToHead('<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />');
     }
 
+    public function updateEntity(EntityManagerInterface $entityManager, $entityInstance): void
+    {
+        parent::updateEntity($entityManager, $entityInstance);
+        $request = $this->getContext()->getRequest();
+        $Password = $request->get('User')['password'];
+        $this->setUserPassword($Password, $entityInstance, $entityManager);
+    }
+
 
 
     public function configureFields(string $pageName): iterable
